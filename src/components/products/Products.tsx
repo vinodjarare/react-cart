@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import useProducts from "../../hooks/useProducts";
 import Wrapper from "../Wrapper";
 import { Product } from "../../types";
+import ProductsSkeleton from "../skeleton/ProductsSkeleton";
 
 const Products = () => {
   const { products, loading, getAllProducts } = useProducts();
@@ -36,7 +37,7 @@ const Products = () => {
   return (
     <Wrapper>
       {loading ? (
-        <div>Loading...</div>
+        <ProductsSkeleton />
       ) : (
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-24 mx-auto">

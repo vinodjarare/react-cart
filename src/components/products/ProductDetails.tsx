@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import useProduct from "../../hooks/useProduct";
 import useCart from "../../hooks/useCart";
 import { Product } from "../../types";
+import ProductDetailSkeleton from "../skeleton/ProductDetailSkeleton";
 const ProductDetails = () => {
   const { id } = useParams();
   const { product, loading, getProduct } = useProduct();
@@ -16,18 +17,17 @@ const ProductDetails = () => {
   const handleAddToCart = (product: Product) => {
     addToCart(product);
   };
-  console.log(cartItems);
   return (
     <Wrapper>
       {loading ? (
-        <div>loading...</div>
+        <ProductDetailSkeleton />
       ) : (
-        <section className="text-gray-600 body-font overflow-hidden  min-h-[calc(100vh-100px)]">
+        <section className="text-gray-600 body-font overflow-hidden min-h-[calc(100vh-100px)]">
           <div className="container px-5 py-24 mx-auto">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 alt="ecommerce"
-                className="lg:w-1/2 w-full lg:h-auto h-60 object-contain object-center rounded"
+                className="lg:w-1/2 w-full lg:h-[500px] h-60 object-contain object-center rounded"
                 src={product?.image}
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
