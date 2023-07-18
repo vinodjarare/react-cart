@@ -10,7 +10,9 @@ const Cart = () => {
           <div className="w-full md:w-3/4 bg-white px-3  md:px-10 py-10">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-              <h2 className="font-semibold text-2xl">3 Items</h2>
+              <h2 className="font-semibold text-2xl">
+                {cartItems.length} Items
+              </h2>
             </div>
             <div className="flex mt-10 mb-5">
               <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
@@ -27,7 +29,10 @@ const Cart = () => {
               </h3>
             </div>
             {cartItems.map((item) => (
-              <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+              <div
+                className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
+                key={item.id}
+              >
                 <div className="flex w-2/5">
                   <div className="w-20">
                     <img className="h-24" src={item.image} alt="" />
@@ -38,7 +43,7 @@ const Cart = () => {
                       {item.category}
                     </span>
                     <button
-                      className="font-semibold text-red-500  text-xs"
+                      className="font-semibold text-red-500 text-xs text-start"
                       onClick={() => removeFromCart(item)}
                     >
                       Remove
@@ -56,7 +61,7 @@ const Cart = () => {
                   <input
                     className="mx-2 border text-center w-8"
                     type="text"
-                    value="1"
+                    defaultValue="1"
                   />
 
                   <svg

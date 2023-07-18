@@ -19,7 +19,7 @@ const Products = () => {
     }
   }, [products]);
 
-  // filter product base on category
+  // filter product based on category
   const filterProduct = useCallback(
     (category: string) => {
       if (category === "all") {
@@ -40,7 +40,7 @@ const Products = () => {
         <ProductsSkeleton />
       ) : (
         <section className="text-gray-600 body-font">
-          <div className="container px-5 py-24 mx-auto">
+          <div className="container px-2 md:px-5 py-24 mx-auto">
             <div className="flex items-center justify-between box-border px-5 py-2 border-b-2 border-gray-200 w-full mb-20">
               <h1 className="text-gray-900 text-3xl title-font font-medium">
                 Filter
@@ -61,7 +61,7 @@ const Products = () => {
             <div className="flex flex-wrap -m-4 gap-2 justify-center">
               {filteredProducts.map((product) => (
                 <div
-                  className="lg:w-1/4 md:w-1/2 p-4 w-full border rounded-lg"
+                  className="lg:w-1/4 md:w-1/2 p-2 md:p-4 w-full border rounded-lg"
                   key={product.id}
                 >
                   <Link

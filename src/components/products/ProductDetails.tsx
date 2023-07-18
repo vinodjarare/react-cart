@@ -8,7 +8,7 @@ import ProductDetailSkeleton from "../skeleton/ProductDetailSkeleton";
 const ProductDetails = () => {
   const { id } = useParams();
   const { product, loading, getProduct } = useProduct();
-  const { addToCart, cartItems } = useCart();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     getProduct(Number(id));
